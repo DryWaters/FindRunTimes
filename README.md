@@ -14,4 +14,5 @@ n^2
 2^n
 
 It calculates if given one second, minute, hour, day, month, and year.
+
 It assumes each operation takes one microsecond to complete.
