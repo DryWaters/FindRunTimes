@@ -15,7 +15,7 @@ public class Calculate {
             counter++;
             testValue = counter * (Math.log(counter) / Math.log(2));
         }
-        return Math.floor(--counter);
+        return --counter;
     }
 
     public static double nSquare(double value) {
