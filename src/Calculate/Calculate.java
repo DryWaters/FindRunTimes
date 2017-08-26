@@ -7,7 +7,8 @@ class Calculate {
     Calculate() {
         System.out.println("This program will print out the number of operations that can be");
         System.out.println("completed in one second, minute, hour, day, month, year if the");
-        System.out.println("operation time is log(n), square root (n), n, n log(n), n^2, 2^n.\n\n");
+        System.out.println("operation time is log(n), square root (n), n, n log(n), n^2, 2^n.");
+        System.out.println("This assumes each operation takes one microsecond to complete.\n\n");
     }
 
     void calculateValues() {
