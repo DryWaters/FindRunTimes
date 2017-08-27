@@ -1,5 +1,7 @@
 package Calculate;
 
+import java.util.Arrays;
+
 // Class to hold to calculate the number of microseconds in
 // Seconds, Minutes, Hours, Days, Months, and Year
 // and stores them in an array
@@ -16,7 +18,7 @@ class Constants {
     private static final double NUMBER_MICROSECONDS_IN_MONTH = NUMBER_MICROSECONDS_IN_DAY * DAYS_PER_MONTH;
     private static final double NUMBER_MICROSECONDS_IN_YEAR = NUMBER_MICROSECONDS_IN_DAY * DAYS_PER_YEAR;
 
-    static final double[] allValues = {
+    private static final double[] allValues = {
             NUMBER_MICROSECONDS_IN_SECOND,
             NUMBER_MICROSECONDS_IN_MINUTE,
             NUMBER_MICROSECONDS_IN_HOUR,
@@ -24,7 +26,7 @@ class Constants {
             NUMBER_MICROSECONDS_IN_MONTH,
             NUMBER_MICROSECONDS_IN_YEAR };
 
-    static final String[] names = {
+    private static final String[] names = {
             "One Second",
             "One Minute",
             "One Hour",
@@ -33,4 +35,11 @@ class Constants {
             "One Year"
     };
 
+    static double[] getAllValues() {
+        return Arrays.copyOf(allValues, allValues.length);
+    }
+
+    static String[] getAllNames() {
+        return Arrays.copyOf(names, names.length);
+    }
 }

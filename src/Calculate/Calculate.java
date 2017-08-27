@@ -4,7 +4,15 @@ package Calculate;
 // of various functions
 class Calculate {
 
+    private double[] allValues;
+    private String[] allNames;
+
     Calculate() {
+        allValues = Constants.getAllValues();
+        allNames = Constants.getAllNames();
+    }
+
+    private void printHeader() {
         System.out.println("This program will print out the number of operations that can be");
         System.out.println("completed in one second, minute, hour, day, month, year if the");
         System.out.println("operation time is log(n), square root (n), n, n log(n), n^2, 2^n.");
@@ -13,26 +21,28 @@ class Calculate {
 
     void calculateValues() {
 
+        printHeader();
+
         // Find the value of log(n), even though all values are larger than Double.MAX
         System.out.println("Calculating log(n)");
-        for (int i = 0; i < Constants.allValues.length; i++) {
-            System.out.printf("%-10s %15.5E\n", Constants.names[i],
-                    logN(Constants.allValues[i]));
+        for (int i = 0; i < allValues.length; i++) {
+            System.out.printf("%-10s %15.5E\n", allNames[i],
+                    logN(allValues[i]));
         }
         System.out.println();
 
         // Find the value of square root of (n)
         System.out.println("Calculating square root(N)");
-        for (int i = 0; i < Constants.allValues.length; i++) {
-            System.out.printf("%-10s %15.5E\n", Constants.names[i],
-                    squareRootN(Constants.allValues[i]));
+        for (int i = 0; i < allValues.length; i++) {
+            System.out.printf("%-10s %15.5E\n", allNames[i],
+                    squareRootN(allValues[i]));
         }
         System.out.println();
 
         // Find the value of square root of (n)
         System.out.println("Calculating n)");
-        for (int i = 0; i < Constants.allValues.length; i++) {
-            System.out.printf("%-10s %15.0f\n", Constants.names[i], Constants.allValues[i]);
+        for (int i = 0; i < allValues.length; i++) {
+            System.out.printf("%-10s %15.0f\n", allNames[i], allValues[i]);
         }
         System.out.println();
 
@@ -41,7 +51,7 @@ class Calculate {
         // next calculation on NUMBER_OF_SECONDS, NUMBER_OF_MINUTES, NUMBER_OF_HOURS.
         System.out.println("Calculating nLogN");
         double lastValue = 0;
-        for (int i = 0; i < Constants.allValues.length; i++)
+        for (int i = 0; i < allValues.length; i++)
         {
             if (i == 3) {
                 lastValue = 2.7E9;
@@ -50,24 +60,24 @@ class Calculate {
             } else if (i == 5) {
                 lastValue = 7.975E11;
             }
-            lastValue = nLogN(Constants.allValues[i], lastValue);
-            System.out.printf("%-10s %15.0f\n", Constants.names[i], lastValue);
+            lastValue = nLogN(allValues[i], lastValue);
+            System.out.printf("%-10s %15.0f\n", allNames[i], lastValue);
         }
         System.out.println();
 
         // Find the value of n^2
         System.out.println("Calculating N^2");
-        for (int i = 0; i < Constants.allValues.length; i++) {
-            System.out.printf("%-10s %15.0f\n", Constants.names[i],
-                    nSquare(Constants.allValues[i]));
+        for (int i = 0; i < allValues.length; i++) {
+            System.out.printf("%-10s %15.0f\n", allNames[i],
+                    nSquare(allValues[i]));
         }
         System.out.println();
 
         // Find the value of 2^n
         System.out.println("Calculating 2^N");
-        for (int i = 0; i < Constants.allValues.length; i++) {
-            System.out.printf("%-10s %15.0f\n", Constants.names[i],
-                    twoN(Constants.allValues[i]));
+        for (int i = 0; i < allValues.length; i++) {
+            System.out.printf("%-10s %15.0f\n", allNames[i],
+                    twoN(allValues[i]));
         }
         System.out.println();
     }
